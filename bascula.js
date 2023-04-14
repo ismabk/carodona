@@ -1,6 +1,7 @@
 let encenderMaquina = false;
 let frutaGuardada;
 let peso;
+let total=0;
 let flagPeso = false;
 let flagPesado = false;
 
@@ -52,7 +53,9 @@ function precio(fruta) {
         frut.nombre.toUpperCase();
       document.getElementById("display__precio").innerHTML = euro(frut.precio);
       document.getElementById("display__peso").innerHTML = "0.00 Kg";
-      document.getElementById("display__total").innerHTML = euro(0);
+      document.getElementById("display__total").innerHTML = euro(
+        total+=frut.importe
+      );
       flagPeso = true;
       flagPesado = false;
     }
@@ -83,10 +86,10 @@ function añadir() {
     arrayFrutas.forEach((frut) => {
       if (frutaGuardada === frut.nombre) {
         frut.importe = frut.peso * frut.precio;
-        document.getElementById("display__total").innerHTML = euro(
-          frut.importe
-        );
       }
+      document.getElementById("display__total").innerHTML = euro(
+        total+=frut.importe
+      );
     });
   }
 }
