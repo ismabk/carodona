@@ -37,7 +37,7 @@ h1{
 .bPeso{
     background-color: var(--primary-mercadona);
 }
-.bPeso:hover{
+.bPeso:hover, .bPeso:focus-visible{
     background-color: var(--primary-mercadonaD);
     opacity: 1.5;
 }
@@ -67,18 +67,17 @@ h1{
     border: 2px solid var(--secondary-mercadona);
     background-color: rgb(173, 172, 172);
 }
-.maquina{
+/* .maquina{
     opacity: 0;
-    height: 0;
-    overflow: hidden;
-}
+    max-height: 0;
+    transition: max-height 1s ease-in,opacity 1s linear;
+    transition-delay: 1s,0s;
+} */
 .encenderMaquina{
     opacity: 1;
-    transition: opacity 1.5s linear;
+    max-height: 1000px;
     height: auto;
-}
-.apagarMaquina{
-    opacity: 0;
-    height: 0;
-    transition: opacity 3s linear;
+    transition: max-height 1s ease-in,opacity 2s linear;
+    transition-delay: 0s,1s;
+
 }
