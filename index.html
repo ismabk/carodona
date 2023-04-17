@@ -26,92 +26,247 @@
     <main class="mt-3">
       <div class="bascula">
         <div class="w-75 d-flex justify-content-around m-auto">
-          <button id="btn-encender" class="btn btn-success" onclick="encender()">Encender</button>
-          <button id="btn-nuevo" class="btn bPeso maquina" onclick="limpiar()">Nuevo Peso</button>
-          <button id="btn-apagar" class="btn btn-danger" onclick="apagar()">Apagar</button>
+          <button
+            id="btn-encender"
+            class="btn btn-success"
+            onclick="encender()"
+          >
+            Encender
+          </button>
+          <button id="btn-nuevo" class="btn bPeso maquina" onclick="limpiar()">
+            Nuevo Peso
+          </button>
+          <button id="btn-apagar" class="btn btn-danger" onclick="apagar()">
+            Apagar
+          </button>
         </div>
         <div id="maquina" class="maquina">
-          <div id="display" class="d-flex justify-content-around text-end display mt-2">
+          <div
+            id="display"
+            class="d-flex justify-content-around text-end display mt-2"
+          >
             <div>
-              <div>Articulo: <span><b id="display__articulo"></b></span></div>
-              <div>Peso: <span><b id="display__peso"></b></span></div>
+              <div>
+                Articulo: <span><b id="display__articulo"></b></span>
+              </div>
+              <div>
+                Peso: <span><b id="display__peso"></b></span>
+              </div>
             </div>
             <div>
-              <div>€/Kg: <span><b id="display__precio"></b></span></div>
-              <div>Total: <span><b id="display__total"></b></span></div>
+              <div>
+                €/Kg: <span><b id="display__precio"></b></span>
+              </div>
+              <div>
+                Total: <span><b id="display__total"></b></span>
+              </div>
             </div>
           </div>
           <div class="mt-2 d-flex flex-wrap justify-content-center">
             <div>
-              <img class="my-2 precio mx-3" width="230" height="195" src="./img/fresa.png" alt="fresa" onclick="precio('fresa')">
+              <img
+                class="my-2 precio mx-3"
+                width="230"
+                height="195"
+                src="./img/fresa.png"
+                alt="fresa"
+                onclick="precio('fresa')"
+              />
               <div>Fresas de Huelva</div>
             </div>
             <div>
-              <img class="my-2 precio mx-3" width="230" height="195" src="./img/cantalupe.png" alt="cantalupe" onclick="precio('cantalupe')">
+              <img
+                class="my-2 precio mx-3"
+                width="230"
+                height="195"
+                src="./img/cantalupe.png"
+                alt="cantalupe"
+                onclick="precio('cantalupe')"
+              />
               <div>Melón de Cantalupe</div>
             </div>
             <div>
-              <img class="my-2 precio mx-3" width="230" height="195" src="./img/cereza.png" alt="cereza" onclick="precio('cereza')">
+              <img
+                class="my-2 precio mx-3"
+                width="230"
+                height="195"
+                src="./img/cereza.png"
+                alt="cereza"
+                onclick="precio('cereza')"
+              />
               <div>Cerezas</div>
             </div>
             <div>
-              <img class="my-2 precio mx-3" width="230" height="195" src="./img/coco.png" alt="coco" onclick="precio('coco')">
+              <img
+                class="my-2 precio mx-3"
+                width="230"
+                height="195"
+                src="./img/coco.png"
+                alt="coco"
+                onclick="precio('coco')"
+              />
               <div>Coquito Loco</div>
             </div>
             <div>
-              <img class="my-2 precio mx-3" width="230" height="195" src="./img/kiwi.png" alt="kiwi" onclick="precio('kiwi')">
+              <img
+                class="my-2 precio mx-3"
+                width="230"
+                height="195"
+                src="./img/kiwi.png"
+                alt="kiwi"
+                onclick="precio('kiwi')"
+              />
               <div>Kiwi</div>
             </div>
             <div>
-              <img class="my-2 precio mx-3" width="230" height="195" src="./img/mango.png" alt="mango" onclick="precio('mango')">
+              <img
+                class="my-2 precio mx-3"
+                width="230"
+                height="195"
+                src="./img/mango.png"
+                alt="mango"
+                onclick="precio('mango')"
+              />
               <div>Manguito</div>
             </div>
             <div>
-              <img class="my-2 precio mx-3" width="230" height="195" src="./img/manzana.png" alt="manzana" onclick="precio('manzana')">
+              <img
+                class="my-2 precio mx-3"
+                width="230"
+                height="195"
+                src="./img/manzana.png"
+                alt="manzana"
+                onclick="precio('manzana')"
+              />
               <div>Manzanas de Blancanieves</div>
             </div>
             <div>
-              <img class="my-2 precio mx-3" width="230" height="195" src="./img/melecoton.png" alt="melecoton" onclick="precio('melecoton')">
+              <img
+                class="my-2 precio mx-3"
+                width="230"
+                height="195"
+                src="./img/melecoton.png"
+                alt="melecoton"
+                onclick="precio('melecoton')"
+              />
               <div>Melocotón</div>
             </div>
             <div>
-              <img class="my-2 precio mx-3" width="230" height="195" src="./img/melon.png" alt="melon" onclick="precio('melon')">
+              <img
+                class="my-2 precio mx-3"
+                width="230"
+                height="195"
+                src="./img/melon.png"
+                alt="melon"
+                onclick="precio('melon')"
+              />
               <div>Melón piel de sapo</div>
             </div>
             <div>
-              <img class="my-2 precio mx-3" width="230" height="195" src="./img/naranja.png" alt="naranja" onclick="precio('naranja')">
+              <img
+                class="my-2 precio mx-3"
+                width="230"
+                height="195"
+                src="./img/naranja.png"
+                alt="naranja"
+                onclick="precio('naranja')"
+              />
               <div>Orange</div>
             </div>
             <div>
-              <img class="my-2 precio mx-3" width="230" height="195" src="./img/peras.png" alt="peras" onclick="precio('peras')">
+              <img
+                class="my-2 precio mx-3"
+                width="230"
+                height="195"
+                src="./img/peras.png"
+                alt="peras"
+                onclick="precio('peras')"
+              />
               <div>Peras</div>
             </div>
             <div>
-              <img class="my-2 precio mx-3" width="230" height="195" src="./img/piña.png" alt="piña" onclick="precio('piña')">
+              <img
+                class="my-2 precio mx-3"
+                width="230"
+                height="195"
+                src="./img/piña.png"
+                alt="piña"
+                onclick="precio('piña')"
+              />
               <div>Piña colada</div>
             </div>
             <div>
-              <img class="my-2 precio mx-3" width="230" height="195" src="./img/platano.png" alt="platano" onclick="precio('platano')">
+              <img
+                class="my-2 precio mx-3"
+                width="230"
+                height="195"
+                src="./img/platano.png"
+                alt="platano"
+                onclick="precio('platano')"
+              />
               <div>Platano de Canarias</div>
             </div>
             <div>
-              <img class="my-2 precio mx-3" width="230" height="195" src="./img/sandia.png" alt="sandia" onclick="precio('sandia')">
+              <img
+                class="my-2 precio mx-3"
+                width="230"
+                height="195"
+                src="./img/sandia.png"
+                alt="sandia"
+                onclick="precio('sandia')"
+              />
               <div>Sandía</div>
             </div>
             <div>
-              <img class="my-2 precio mx-3" width="230" height="195" src="./img/ciruela.png" alt="ciruela" onclick="precio('ciruela')">
+              <img
+                class="my-2 precio mx-3"
+                width="230"
+                height="195"
+                src="./img/ciruela.png"
+                alt="ciruela"
+                onclick="precio('ciruela')"
+              />
               <div>Ciruelas</div>
             </div>
           </div>
           <div class="mt-2">
-            <button id="btn-pesar" class="btn bPeso fw-bold mx-3" onclick="pesar()">Pesar</button>
-            <button id="btn-añadir" class="btn btn-success mx-3" onclick="añadir()"><img height="20" src="./img/add.webp" alt="añadir"></button>
+            <button
+              id="btn-pesar"
+              class="btn bPeso fw-bold mx-3"
+              onclick="pesar()"
+            >
+              Pesar
+            </button>
+            <button
+              id="btn-añadir"
+              class="btn btn-success mx-3"
+              onclick="añadir()"
+            >
+              <img height="20" src="./img/add.webp" alt="añadir" />
+            </button>
 
-            <button id="btn-cobrar" class="btn bCobro fw-bold mx-3">Cobrar</button>
+            <button id="btn-cobrar" class="btn bCobro fw-bold mx-3" onclick="cobrar()">
+              Cobrar
+            </button>
           </div>
         </div>
       </div>
     </main>
+    <div id="ticket" class="ticket">
+      <h2>BLACK MARKET</h2>
+      <h4>TICKET</h4>
+      <table class="blackticket">
+        <thead>
+          <tr>
+            <th class="articulo">Articulo</th>
+            <th class="peso">Peso(Kg)</th>
+            <th class="pkg">Precio/Kg</th>
+            <th class="fin">Importe</th>
+          </tr>
+        </thead>
+        <tbody id="cuerpo"></tbody>
+      </table>
+    </div>
   </body>
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"

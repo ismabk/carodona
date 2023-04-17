@@ -1,9 +1,10 @@
 let encenderMaquina = false;
 let frutaGuardada;
 let peso;
-let total=0;
+let total = 0;
 let flagPeso = false;
 let flagPesado = false;
+let flagCobrar = false;
 
 let arrayFrutas = [
   { nombre: "fresa", precio: 2.9, peso: 0, importe: 0 },
@@ -54,7 +55,7 @@ function precio(fruta) {
       document.getElementById("display__precio").innerHTML = euro(frut.precio);
       document.getElementById("display__peso").innerHTML = "0.00 Kg";
       document.getElementById("display__total").innerHTML = euro(
-        total+=frut.importe
+        (total += frut.importe)
       );
       flagPeso = true;
       flagPesado = false;
@@ -66,7 +67,7 @@ function pesar() {
   if (flagPeso === true) {
     arrayFrutas.forEach((frut) => {
       if (frutaGuardada === frut.nombre) {
-        frut.peso = (Math.random() * 10 + 0.5).toFixed(2);
+        frut.peso = (Math.random() * 5 + 0.5).toFixed(2);
         document.getElementById("display__peso").innerHTML = `${frut.peso} Kg`;
       }
     });
@@ -78,18 +79,36 @@ function limpiar() {
   document.getElementById("display__precio").innerHTML = "";
   document.getElementById("display__peso").innerHTML = "";
   document.getElementById("display__total").innerHTML = "";
+  arrayFrutas.forEach((frut) => {
+    frut.importe = 0;
+  });
   flagPeso = false;
   flagPesado = false;
 }
 function añadir() {
   if (flagPesado === true) {
     arrayFrutas.forEach((frut) => {
-      if (frutaGuardada === frut.nombre) {
+      if (frutaGuardada === frut.nombre && frut.importe === 0) {
         frut.importe = frut.peso * frut.precio;
       }
       document.getElementById("display__total").innerHTML = euro(
-        total+=frut.importe
+        arrayFrutas.reduce((previous, current) => {
+          return previous + current.importe;
+        }, 0)
       );
     });
+  }
+}
+
+function cobrar() {
+  arrayFrutas.forEach((frut) => {
+    if (frut.importe !== 0) {
+      flagCobrar = true;
+    }
+  });
+  if (flagCobrar) {
+    if (confirm("Desea generar el ticket de compra?")) {
+      console.log("generado");
+    }
   }
 }
