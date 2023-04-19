@@ -128,6 +128,18 @@ function cobrar() {
 
 function generarcodigobarras() {
   const svg = document.querySelector('svg')
-  svg.setAttribute('jsbarcode-value',codigoBarras().toString());
+  svg.setAttribute('jsbarcode-value',generateUPCA().toString());
   JsBarcode(".barcode").init();
 }
+
+function generateUPCA() {
+  let upc = "";
+  for (let i = 0; i < 11; i++) {
+    upc += Math.floor(Math.random() * 10);
+  }
+  let sum = (parseInt(upc[0]) + parseInt(upc[2]) + parseInt(upc[4]) + parseInt(upc[6]) + parseInt(upc[8]) + parseInt(upc[10])) * 3;
+  sum += (parseInt(upc[1]) + parseInt(upc[3]) + parseInt(upc[5]) + parseInt(upc[7]) + parseInt(upc[9]));
+  let checkDigit = (10 - (sum % 10)) % 10;
+  return upc + checkDigit;
+}
+
