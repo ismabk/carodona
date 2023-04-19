@@ -67,12 +67,12 @@ h1{
     border: 2px solid var(--secondary-mercadona);
     background-color: rgb(173, 172, 172);
 }
-/* .maquina{
+.maquina{
     opacity: 0;
     max-height: 0;
     transition: max-height 1s ease-in,opacity 1s linear;
     transition-delay: 1s,0s;
-} */
+}
 .encenderMaquina{
     opacity: 1;
     max-height: 1000px;
@@ -87,7 +87,7 @@ h1{
     position:fixed;
     top:185px;
     right:30px;
-    width:275px;
+    width:500px;
     border:2px solid crimson;
     max-height: 605px;
     overflow: hidden;

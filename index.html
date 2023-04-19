@@ -245,7 +245,11 @@
               <img height="20" src="./img/add.webp" alt="añadir" />
             </button>
 
-            <button id="btn-cobrar" class="btn bCobro fw-bold mx-3" onclick="cobrar()">
+            <button
+              id="btn-cobrar"
+              class="btn bCobro fw-bold mx-3"
+              onclick="cobrar(), generarcodigobarras()"
+            >
               Cobrar
             </button>
           </div>
@@ -255,6 +259,7 @@
     <div id="ticket" class="ticket">
       <h2>BLACK MARKET</h2>
       <h4>TICKET</h4>
+      <h6 id="fecha" class="m-auto"></h6>
       <table class="blackticket">
         <thead>
           <tr>
@@ -264,8 +269,20 @@
             <th class="fin">Importe</th>
           </tr>
         </thead>
-        <tbody id="cuerpo"></tbody>
+        <tbody id="cuerpoTicket"></tbody>
       </table>
+      <!-- <svg
+        id="barcode"
+        jsbarcode-format="upc"
+        jsbarcode-textmargin="0"
+        jsbarcode-fontoptions="bold"
+      ></svg> -->
+      <svg
+        class="barcode"
+        jsbarcode-format="upc"
+        jsbarcode-textmargin="0"
+        jsbarcode-fontoptions="bold"
+      ></svg>
     </div>
   </body>
   <script
@@ -274,4 +291,5 @@
     crossorigin="anonymous"
   ></script>
   <script src="bascula.js" lang="javascript" type="text/javascript"></script>
+  <script src="./JsBarcode.all.min.js"></script>
 </html>

@@ -24,22 +24,22 @@ let arrayFrutas = [
   { nombre: "ciruela", precio: 1.4, peso: 0, importe: 0 },
 ];
 
-// function encender() {
-//   if (encenderMaquina === false) {
-//     console.log("Encendiendo");
-//     document.getElementById("maquina").classList.add("encenderMaquina");
-//     document.getElementById("btn-nuevo").classList.add("encenderMaquina");
-//     encenderMaquina = true;
-//   }
-// }
-// function apagar() {
-//   if (encenderMaquina === true) {
-//     console.log("Apagando");
-//     document.getElementById("maquina").classList.remove("encenderMaquina");
-//     document.getElementById("btn-nuevo").classList.remove("encenderMaquina");
-//     encenderMaquina = false;
-//   }
-// }
+function encender() {
+  if (encenderMaquina === false) {
+    console.log("Encendiendo");
+    document.getElementById("maquina").classList.add("encenderMaquina");
+    document.getElementById("btn-nuevo").classList.add("encenderMaquina");
+    encenderMaquina = true;
+  }
+}
+function apagar() {
+  if (encenderMaquina === true) {
+    console.log("Apagando");
+    document.getElementById("maquina").classList.remove("encenderMaquina");
+    document.getElementById("btn-nuevo").classList.remove("encenderMaquina");
+    encenderMaquina = false;
+  }
+}
 function euro(precio) {
   return precio.toLocaleString("es", {
     style: "currency",
@@ -55,7 +55,7 @@ function precio(fruta) {
       document.getElementById("display__precio").innerHTML = euro(frut.precio);
       document.getElementById("display__peso").innerHTML = "0.00 Kg";
       document.getElementById("display__total").innerHTML = euro(
-        (total += frut.importe)
+        (0)
       );
       flagPeso = true;
       flagPesado = false;
@@ -74,6 +74,9 @@ function pesar() {
     flagPesado = true;
   }
 }
+function codigoBarras(){
+  return Math.round(Math.random()*999999999999+100000000000);
+}
 function limpiar() {
   document.getElementById("display__articulo").innerHTML = "";
   document.getElementById("display__precio").innerHTML = "";
@@ -82,6 +85,8 @@ function limpiar() {
   arrayFrutas.forEach((frut) => {
     frut.importe = 0;
   });
+  document.getElementById("cuerpoTicket").innerHTML = `<tr></tr>`;
+  total=0;
   flagPeso = false;
   flagPesado = false;
 }
@@ -93,7 +98,7 @@ function añadir() {
       }
       document.getElementById("display__total").innerHTML = euro(
         arrayFrutas.reduce((previous, current) => {
-          return previous + current.importe;
+          return total = previous + current.importe;
         }, 0)
       );
     });
@@ -108,7 +113,21 @@ function cobrar() {
   });
   if (flagCobrar) {
     if (confirm("Desea generar el ticket de compra?")) {
-      console.log("generado");
+      let fecha= new Date();
+      let hora= fecha.getHours();
+      document.getElementById("fecha").innerHTML = `Fecha: ${fecha.getDate()}/${fecha.getMonth()+1}/${fecha.getFullYear()} Hora: ${hora}:${fecha.getMinutes()}`;
+      arrayFrutas.forEach((frut) => {
+        if (frut.importe !== 0) {
+          document.getElementById("cuerpoTicket").innerHTML += `<tr><td>${frut.nombre}</td><td>${frut.peso}</td><td>${frut.precio}</td><td>${(frut.importe.toFixed(2))}</td></tr>`;
+        }
+      });
+      document.getElementById("cuerpoTicket").innerHTML += `<tr><td colspan="3">Total</td><td>${euro(total)}</td></tr>`;
     }
   }
+}
+
+function generarcodigobarras() {
+  const svg = document.querySelector('svg')
+  svg.setAttribute('jsbarcode-value',codigoBarras().toString());
+  JsBarcode(".barcode").init();
 }
