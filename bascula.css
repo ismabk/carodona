@@ -6,9 +6,9 @@
   --primary-mercadona: #fbbc04;
   --primary-mercadonaD: #ca9904;
   --secondary-mercadona: #c4d31b;
-  --secondary-mercadonaTrans: #c4d31bcc;
+  --secondary-mercadonaTrans: #c4d31b;
   --secondary-mercadonaD: #9ca817;
-  --secondary-mercadonaDTrans: #9ca817cc;
+  --secondary-mercadonaDTrans: #9ca817;
 }
 body {
   font-family: "Roboto Mono", monospace;
