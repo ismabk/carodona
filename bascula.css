@@ -1,97 +1,108 @@
-:root{
-    --primary-color: #CCF6C8;
-    --secondary-color: #FAFCC280;
-    --tertiary-color: #F6D6AD80;
-    --quaternary-color: #F9C0C0CC;
-    --primary-mercadona: #fbbc04 ;
-    --primary-mercadonaD: #ca9904 ;
-    --secondary-mercadona: #c4d31b  ;
-    --secondary-mercadonaTrans: #c4d31bCC  ;
-    --secondary-mercadonaD: #9ca817  ;
-    --secondary-mercadonaDTrans: #9ca817CC  ;
+:root {
+  --primary-color: #ccf6c8;
+  --secondary-color: #fafcc280;
+  --tertiary-color: #f6d6ad80;
+  --quaternary-color: #f9c0c0cc;
+  --primary-mercadona: #fbbc04;
+  --primary-mercadonaD: #ca9904;
+  --secondary-mercadona: #c4d31b;
+  --secondary-mercadonaTrans: #c4d31bcc;
+  --secondary-mercadonaD: #9ca817;
+  --secondary-mercadonaDTrans: #9ca817cc;
 }
-body{
-    font-family: 'Roboto Mono', monospace;
-    background-image: url(./img/Mercadona_logotipo.jpg);
-    background-size: 400px;
+body {
+  font-family: "Roboto Mono", monospace;
+  background-image: url(./img/Mercadona_logotipo.jpg);
+  background-size: 400px;
 }
-h1{
-    margin: auto;
-    text-align: center;
-    font-size: 24px;
-    padding: 10px;
-    width: 50%;
-    border-radius: 15px;
-    border: 1px solid var(--primary-color);
-    background-color: var(--secondary-color);
+h1 {
+  margin: auto;
+  text-align: center;
+  font-size: 24px;
+  padding: 10px;
+  width: 50%;
+  border-radius: 15px;
+  border: 1px solid var(--primary-color);
+  background-color: var(--secondary-color);
 }
-.bascula{
-    margin: auto;
-    text-align: center;
-    padding: 10px;
-    width: 80%;
-    border-radius: 15px;
-    border: 1px solid var(--primary-color);
-    background-color: var(--tertiary-color);
+.bascula {
+  margin: auto;
+  text-align: center;
+  padding: 10px;
+  width: 80%;
+  border-radius: 15px;
+  border: 1px solid var(--primary-color);
+  background-color: var(--tertiary-color);
 }
-.bPeso{
-    background-color: var(--primary-mercadona);
+.bPeso {
+  background-color: var(--primary-mercadona);
 }
-.bPeso:hover, .bPeso:focus-visible{
-    background-color: var(--primary-mercadonaD);
-    opacity: 1.5;
+.bPeso:hover,
+.bPeso:focus-visible {
+  background-color: var(--primary-mercadonaD);
+  opacity: 1.5;
 }
-.bCobro{
-    background-color: var(--secondary-mercadona);
+.bCobro {
+  background-color: var(--secondary-mercadona);
 }
-.bCobro:hover{
-    background-color: var(--secondary-mercadonaD);
+.bCobro:hover {
+  background-color: var(--secondary-mercadonaD);
 }
-.precio{
-    margin: auto;
-    text-align: center;
-    padding: 50px;
-    border-radius: 15px;
-    border: 2px solid var(--secondary-mercadona);
-    background-color: var(--secondary-mercadonaTrans);
+.precio {
+  margin: auto;
+  text-align: center;
+  padding: 50px;
+  border-radius: 15px;
+  border: 2px solid var(--secondary-mercadona);
+  background-color: var(--secondary-mercadonaTrans);
 }
-.precio:hover{
-    cursor: pointer;
-    background-color: var(--secondary-mercadonaDTrans);
+.precio:hover {
+  cursor: pointer;
+  background-color: var(--secondary-mercadonaDTrans);
 }
-.display{
-    width: 80%;
-    margin: auto;
-    padding: 5px;
-    border-radius: 10px;
-    border: 2px solid var(--secondary-mercadona);
-    background-color: rgb(173, 172, 172);
+.display {
+  width: 80%;
+  margin: auto;
+  padding: 5px;
+  border-radius: 10px;
+  border: 2px solid var(--secondary-mercadona);
+  background-color: rgb(173, 172, 172);
 }
-.maquina{
-    opacity: 0;
-    max-height: 0;
-    transition: max-height 1s ease-in,opacity 1s linear;
-    transition-delay: 1s,0s;
+.maquina {
+  opacity: 0;
+  max-height: 0;
+  transition: max-height 1s ease-in, opacity 1s linear;
+  transition-delay: 1s, 0s;
 }
-.encenderMaquina{
-    opacity: 1;
-    max-height: 1000px;
-    height: auto;
-    transition: max-height 1s ease-in,opacity 2s linear;
-    transition-delay: 0s,1s;
-
+.encenderMaquina {
+  opacity: 1;
+  max-height: 1000px;
+  height: auto;
+  transition: max-height 1s ease-in, opacity 2s linear;
+  transition-delay: 0s, 1s;
 }
-
-.ticket{
-    /* display:; */
-    position:fixed;
-    top:185px;
-    right:30px;
-    width:500px;
-    border:2px solid crimson;
-    max-height: 605px;
-    overflow: hidden;
-    box-shadow: 4px 5px 15px #777;
-    height:605px;
-    background-color: blanchedalmond;
-    } 
+.ticket {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 450px;
+  height: auto;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  overflow: hidden;
+  background-color: #fff;
+  margin: auto;
+  --mask: conic-gradient(
+        from 150deg at top,
+        #0000,
+        #000 1deg 59deg,
+        #0000 60deg
+      )
+      top/34.64px 51% repeat-x,
+    conic-gradient(from -30deg at bottom, #0000, #000 1deg 59deg, #0000 60deg)
+      bottom/34.64px 51% repeat-x;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+}

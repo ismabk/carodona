@@ -37,6 +37,7 @@ function apagar() {
     console.log("Apagando");
     document.getElementById("maquina").classList.remove("encenderMaquina");
     document.getElementById("btn-nuevo").classList.remove("encenderMaquina");
+    limpiar();
     encenderMaquina = false;
   }
 }
@@ -54,9 +55,12 @@ function precio(fruta) {
         frut.nombre.toUpperCase();
       document.getElementById("display__precio").innerHTML = euro(frut.precio);
       document.getElementById("display__peso").innerHTML = "0.00 Kg";
-      document.getElementById("display__total").innerHTML = euro(
-        (0)
-      );
+      document.getElementById("display__total").innerHTML =
+        document.getElementById("display__total").innerHTML = euro(
+          arrayFrutas.reduce((previous, current) => {
+            return (total = previous + current.importe);
+          }, 0)
+        );
       flagPeso = true;
       flagPesado = false;
     }
@@ -74,8 +78,8 @@ function pesar() {
     flagPesado = true;
   }
 }
-function codigoBarras(){
-  return Math.round(Math.random()*999999999999+100000000000);
+function codigoBarras() {
+  return Math.round(Math.random() * 999999999999 + 100000000000);
 }
 function limpiar() {
   document.getElementById("display__articulo").innerHTML = "";
@@ -85,8 +89,9 @@ function limpiar() {
   arrayFrutas.forEach((frut) => {
     frut.importe = 0;
   });
+  document.getElementById("ticket").style.display = "none";
   document.getElementById("cuerpoTicket").innerHTML = `<tr></tr>`;
-  total=0;
+  total = 0;
   flagPeso = false;
   flagPesado = false;
 }
@@ -98,7 +103,7 @@ function añadir() {
       }
       document.getElementById("display__total").innerHTML = euro(
         arrayFrutas.reduce((previous, current) => {
-          return total = previous + current.importe;
+          return (total = previous + current.importe);
         }, 0)
       );
     });
@@ -113,22 +118,34 @@ function cobrar() {
   });
   if (flagCobrar) {
     if (confirm("Desea generar el ticket de compra?")) {
-      let fecha= new Date();
-      let hora= fecha.getHours();
-      document.getElementById("fecha").innerHTML = `Fecha: ${fecha.getDate()}/${fecha.getMonth()+1}/${fecha.getFullYear()} Hora: ${hora}:${fecha.getMinutes()}`;
+      document.getElementById("ticket").style.display = "block";
+      let fecha = new Date();
+      document.getElementById(
+        "fecha"
+      ).innerHTML = `Fecha: ${fecha.toLocaleString()}`;
       arrayFrutas.forEach((frut) => {
         if (frut.importe !== 0) {
-          document.getElementById("cuerpoTicket").innerHTML += `<tr><td>${frut.nombre}</td><td>${frut.peso}</td><td>${frut.precio}</td><td>${(frut.importe.toFixed(2))}</td></tr>`;
+          document.getElementById(
+            "cuerpoTicket"
+          ).innerHTML += `<tr><td>${frut.nombre.toUpperCase()}</td><td>${
+            frut.peso
+          }</td><td>${frut.precio}</td><td>${frut.importe.toFixed(
+            2
+          )}</td></tr>`;
         }
       });
-      document.getElementById("cuerpoTicket").innerHTML += `<tr><td colspan="3">Total</td><td>${euro(total)}</td></tr>`;
+      document.getElementById(
+        "cuerpoTicket"
+      ).innerHTML += `<tr class="border border-bottom-0 border-end-0 border-start-0"><td colspan="2"></td><td>Total:</td><td>${euro(
+        total
+      )}</td></tr>`;
     }
   }
 }
 
 function generarcodigobarras() {
-  const svg = document.querySelector('svg')
-  svg.setAttribute('jsbarcode-value',generateUPCA().toString());
+  const svg = document.querySelector("svg");
+  svg.setAttribute("jsbarcode-value", generateUPCA().toString());
   JsBarcode(".barcode").init();
 }
 
@@ -137,9 +154,20 @@ function generateUPCA() {
   for (let i = 0; i < 11; i++) {
     upc += Math.floor(Math.random() * 10);
   }
-  let sum = (parseInt(upc[0]) + parseInt(upc[2]) + parseInt(upc[4]) + parseInt(upc[6]) + parseInt(upc[8]) + parseInt(upc[10])) * 3;
-  sum += (parseInt(upc[1]) + parseInt(upc[3]) + parseInt(upc[5]) + parseInt(upc[7]) + parseInt(upc[9]));
+  let sum =
+    (parseInt(upc[0]) +
+      parseInt(upc[2]) +
+      parseInt(upc[4]) +
+      parseInt(upc[6]) +
+      parseInt(upc[8]) +
+      parseInt(upc[10])) *
+    3;
+  sum +=
+    parseInt(upc[1]) +
+    parseInt(upc[3]) +
+    parseInt(upc[5]) +
+    parseInt(upc[7]) +
+    parseInt(upc[9]);
   let checkDigit = (10 - (sum % 10)) % 10;
   return upc + checkDigit;
 }
-
